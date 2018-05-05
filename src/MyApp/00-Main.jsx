@@ -11,6 +11,7 @@ import CKEditor from "react-ckeditor-component"
 import Home from './01-Home'
 import TexEdit from './02-TextEdit'
 import Graphs from './03-Graphs'
+import Hash from './04-Hashing'
 
 export default class extends React.Component{
     render(){
@@ -22,6 +23,7 @@ export default class extends React.Component{
                     <Link className="menuButton" to="/">Home</Link>
                     <Link className="menuButton" to="/1">TextEdit</Link>
                     <Link className="menuButton" to="/2">Graphs</Link>
+                    <Link className="menuButton" to="/3">Hash</Link>
                 </div>
         
                 <hr/>
@@ -29,6 +31,7 @@ export default class extends React.Component{
                 <Route exact path="/" component={Home}/>
                 <Route path="/1" component={TexEdit}/>
                 <Route path="/2" component={Graphs}/>
+                <Route path="/3" component={Hash}/>
        
             </div>
           </HashRouter>
