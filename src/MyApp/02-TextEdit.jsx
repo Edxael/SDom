@@ -6,7 +6,7 @@ var HtmlToReactParser = require('html-to-react').Parser;
 
  
 export default class extends React.Component {
-    state = { content: 'Type Here', show: false }
+    state = { content: 'Type here..', show: false }
  
     updateContent(newContent) {
         this.setState({ content: newContent })
