@@ -11,6 +11,7 @@ import Home from './01-Home'
 import TexEdit from './02-TextEdit'
 import Text2 from './03-Text2'
 import Hash from './04-Hashing'
+import texample from './03-Text2 (copy)'
 
 export default class extends React.Component{
     render(){
@@ -23,6 +24,7 @@ export default class extends React.Component{
                     <Link className="menuButton" to="/1">TextEdit</Link>
                     <Link className="menuButton" to="/2">Text2</Link>
                     <Link className="menuButton" to="/3">Hash</Link>
+                    <Link className="menuButton" to="/4">Texample</Link>
                 </div>
         
                 <hr/>
@@ -31,6 +33,7 @@ export default class extends React.Component{
                 <Route path="/1" component={TexEdit}/>
                 <Route path="/2" component={Text2}/>
                 <Route path="/3" component={Hash}/>
+                <Route path="/4" component={texample}/>
        
             </div>
           </HashRouter>

@@ -22,6 +22,8 @@ export default class extends React.Component {
 
         <script src="../../node_modules/ckeditor/ckeditor"/>
 
+        "<p>Hello World</p>"
+
       </div>
     )
   }
