@@ -1,59 +1,36 @@
-import React from 'react'
-import CKEditor from "react-ckeditor-component"     // https://www.npmjs.com/package/react-ckeditor-component
-var ReactDOMServer = require('react-dom/server');   // https://www.npmjs.com/package/html-to-react
-var HtmlToReactParser = require('html-to-react').Parser;
-
-
+import React, {Component, PropTypes} from 'react';
+import RichTextEditor from 'react-rte';
  
-export default class extends React.Component {
-    state = { content: 'Type here..', show: false }
- 
-    updateContent(newContent) {
-        this.setState({ content: newContent })
-    }
-    
-    onChange(evt){
-        var newContent = evt.editor.getData();
-        console.log("Lo escrito: ", newContent)
-        this.setState({ content: newContent })
-    }
-
-    render() {
-
-        const newHTML = () => {
-            const textOut = { textAlign: "left", backgroundColor: "rgb(230, 249, 252)", padding: "15px", border: "1px solid black" }
-            var htmlToReactParser = new HtmlToReactParser();
-            var MyReactElement = htmlToReactParser.parse(this.state.content);
-
-            return  <div style={ textOut } >{ MyReactElement }</div>
-        }
-
-
-        return(
-            <div>
-                <h1>Text Editor</h1>
-                
-                <CKEditor 
-                    activeClass="p10" 
-                    content={this.state.content} 
-                    events={{
-                        "change": this.onChange.bind(this)
-                    }}
-                />
-
-                <br/>
-                <hr/>
-                <br/>
+export default class MyStatefulEditor extends Component {
+    static propTypes = {
+      onChange: PropTypes.func
+    };
   
-                    { React.createElement(newHTML) }
- 
-                <div></div>
-                
-            </div>
-        )
+    state = {
+      value: RichTextEditor.createEmptyValue()
     }
-}
-
+  
+    onChange = (value) => {
+      this.setState({value});
+      if (this.props.onChange) {
+        // Send the changes up to the parent component as an HTML string.
+        // This is here to demonstrate using `.toString()` but in a real app it
+        // would be better to avoid generating a string on each change.
+        this.props.onChange(
+          value.toString('html')
+        );
+      }
+    };
+  
+    render () {
+      return (
+        <RichTextEditor
+          value={this.state.value}
+          onChange={this.onChange}
+        />
+      );
+    }
+  }
 
 
 // button className="gralButton" onClick={ printToConsole } >Print Text</button>
