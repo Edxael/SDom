@@ -1,5 +1,6 @@
 body{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color: rgb(125, 253, 125);
     text-align: center;
     padding: 30px 100px;
 }
@@ -57,9 +58,9 @@ body{
 
   /* ===[ the text output ]==================================== */
 
-  .textOut{
+  .textIn{
       text-align: left;
-      background-color: rgb(230, 249, 252);
+      background-color: rgb(197, 228, 253);
       padding: 15px;
       border: 1px solid black;
   }
